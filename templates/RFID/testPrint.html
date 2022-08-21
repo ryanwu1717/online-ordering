@@ -1,0 +1,48 @@
+<?php include(__DIR__.'/../basic/header.html'); ?>
+
+<div class="container-fluid">
+    <div class="card">
+        <h5 class="card-header text-primary">標籤列印</h5>
+        <div class="card-body">
+            <div class="form-row">
+                <div class="col-1 text-right mt-2">Printer:</div>
+                <div class="col-11" data-property-id="uPrinter" data-rendertype="DropDownList" data-property-id="uPrinter" data-property-class="ml-2"></div>
+                <div class="col-1 text-right mt-2">Line1:</div>
+                <div class="col-11" data-property-id="uLine1" data-rendertype="Textbox" data-property-class="ml-2"></div>
+                <label class="col-1 text-right mt-2">Line2:</label>
+                <div class="col-11" data-property-id="uLine2" data-rendertype="Textbox" data-property-class="ml-2"></div>
+                <div class="col-12 text-center">
+                    <div id="uPrint" data-rendertype="Button" data-property-type="print" data-property-onclick="printLabel();"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include(__DIR__.'/../basic/footer.html'); ?>
+</body>
+
+<script src="/js/json.js"></script>
+<script src="/js/string.js"></script>
+<script src="/js/dateTime.js"></script>
+<script src="/js/renderControls.js"></script>
+<script>
+    var jLine1, jLine2, jPrint;
+    $(document).ready(function () {
+		renderControl(renderControlCallBack);
+	});
+    function renderControlCallBack() {
+		jPrinter = $("#uPrinter");
+		for (i = 1; i < 4; i++) { jPrinter.append($("<option></option>").val("Printer" + i).text("Printer" + i)); }
+		jLine1 = $("#uLine1"); jLine1.val("TEST LINE DATA 1");
+		jLine2 = $("#uLine2"); jLine2.val("TEST LINE DATA 2");
+        jPrint = $("#uPrint");
+    }
+    function printLabel() {
+        var oData = { cPrinterName: jPrinter.val(), cLine1: jLine1.val(), cLine2: jLine2.val() };
+        json("post", "/RFID/testPrint", oData, function (data) {
+            alert("EPIC:" + data);
+		});
+	}
+</script>
+
+</html>

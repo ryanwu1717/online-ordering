@@ -1,0 +1,490 @@
+<?php include(__DIR__ . '/../basic/header.html'); ?>
+<div class="row">
+  <!-- search -->
+
+  <div class="col-12">
+    <nav>
+      <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+          aria-controls="nav-home" aria-selected="true">借/領物料</a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+          aria-controls="nav-profile" aria-selected="false">歷史資料查詢</a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div name="success" class="tab-pane fade show active" id="nav-home" role="tabpanel"
+        aria-labelledby="nav-home-tab">
+        <div name="card_success" class="card shadow h-100 py-2">
+          <div class="card-body row row-cols-1">
+            <div class="col-lg-4 mb-3 row row-cols-1">
+              <div class="col-lg-12 mb-3">
+                <div class="card border-info shadow-lg">
+                  <h5 class="card-header text-white text-center bg-info">借用人員</h5>
+                  <div class="card-body row d-flex align-items-center justify-content-center">
+                    <div class="col-lg-6 mb-4">
+                      <img src="/img/user.jpeg" width="100px" class="img-fluid img-thumbnail rounded float-left"
+                        alt="...">
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                      <div>
+                        <label>職編:</label>
+                        <label>001</label>
+                      </div>
+                      <div>
+                        <label>姓名:</label>
+                        <label>XXX</label>
+                      </div>
+                      <div>
+                        <label>操作時間:</label>
+                        <label>2021-10-15</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12 mb-3">
+                <div class="card border-info shadow-lg">
+                  <h5 class="card-header text-white text-center bg-info">借出人員</h5>
+                  <div class="card-body row d-flex align-items-center justify-content-center">
+                    <div class="col-lg-6 mb-4">
+                      <img src="/img/user.jpeg" width="100px" class="img-fluid img-thumbnail rounded float-left"
+                        alt="...">
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                      <div>
+                        <label>職編:</label>
+                        <label>001</label>
+                      </div>
+                      <div>
+                        <label>姓名:</label>
+                        <label>XXX</label>
+                      </div>
+                      <div>
+                        <label>操作時間:</label>
+                        <label>2021-10-15</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-3 ">
+              <div class="card border-info shadow-lg">
+                <h5 class="card-header text-white text-center bg-info">借用原料照片</h5>
+                <div class="card-body row d-flex align-items-center justify-content-center" style="height:40vh">
+                  <div>
+                    <img src="/3DModel/2D.png" class="img-fluid img-thumbnail rounded float-left" alt="...">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-3 ">
+              <div class="card border-info shadow-lg">
+                <h5 class="card-header text-white text-center bg-info">借用原料照片</h5>
+                <div class="card-body row d-flex align-items-center justify-content-center" style="height:40vh">
+                  <div>
+                    <img src="/3DModel/2D.png" class="img-fluid img-thumbnail rounded float-left" alt="...">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12 mb-3 ">
+              <div class="card border-info shadow-lg">
+                <h5 class="card-header text-white bg-info">XXX 目前持有物料</h5>
+                <div class="card-body">
+                  <div class="form-group form-inline justify-content-end">
+                    <button type="button" class="btn btn-primary mx-2">確認歸還</button>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table text-center" id="dataTable" style="width:100%">
+                      <thead>
+                        <tr>
+                          <th>領用日期</th>
+                          <th>品號</th>
+                          <th>品名</th>
+                          <th>規格</th>
+                          <th>領用數量</th>
+                          <th>已歸還數量</th>
+                          <th>未歸還數量</th>
+                          <th>歸還</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            2021-01-01
+                          </td>
+                          <td>
+                            4020000000
+                          </td>
+                          <td>
+                            铣刀
+                          </td>
+                          <td>
+                            12*12
+                          </td>
+                          <td>
+                            10支
+                          </td>
+                          <td>
+                            5支
+                          </td>
+                          <td>
+                            5支
+                          </td>
+                          <td>
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12 mb-3 ">
+              <div class="card border-info shadow-lg">
+                <h5 class="card-header text-white bg-info">本次欲借出物料</h5>
+                <div class="card-body row row-cols-1">
+                  <div class="col-lg-6 mb-3">
+                    <button type="button" class="btn btn-success mx-2">新增筆數</button>
+                  </div>
+                  <div class="col-lg-6 mb-3 form-group form-inline justify-content-end">
+                    <button type="button" class="btn btn-primary mx-2">確認借出
+                    </button>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table text-center" id="dataTable" style="width:100%">
+                      <thead>
+                        <tr>
+                          <th>領用日期</th>
+                          <th>品號</th>
+                          <th>類型</th>
+                          <th>品名</th>
+                          <th>規格</th>
+                          <th>領用數量</th>
+                          <th>領用人</th>
+                          <th>經辦人員</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            2021-01-01
+                          </td>
+                          <td>
+                            4020000000
+                          </td>
+                          <td>
+                            <select class="custom-select" id="inputGroupSelect01">
+                              <option selected>刀具/原料</option>
+                              <option value="1">刀具</option>
+                              <option value="2">原料</option>
+                            </select>
+                          </td>
+                          <td>
+                            <select class="custom-select" id="inputGroupSelect01">
+                              <option selected>品名</option>
+                              <option value="1">可棄式車刀</option>
+                              <option value="2">铣刀</option>
+                              <option value="3">圓刀</option>
+                            </select>
+                          </td>
+                          <td>
+                            12*12
+                          </td>
+                          <td>
+                            <select class="custom-select" id="inputGroupSelect01">
+                              <option selected>數量</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                            </select>
+                          </td>
+                          <td>
+                            XXX
+                          </td>
+                          <td>
+                            XXX
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            2021-01-01
+                          </td>
+                          <td>
+                            4020000000
+                          </td>
+                          <td>
+                            <select class="custom-select" id="inputGroupSelect01">
+                              <option selected>刀具/原料</option>
+                              <option value="1">刀具</option>
+                              <option value="2">原料</option>
+                            </select>
+                          </td>
+                          <td>
+                            <select class="custom-select" id="inputGroupSelect01">
+                              <option selected>品名</option>
+                              <option value="1">可棄式車刀</option>
+                              <option value="2">铣刀</option>
+                              <option value="3">圓刀</option>
+                            </select>
+                          </td>
+                          <td>
+                            12*12
+                          </td>
+                          <td>
+                            <select class="custom-select" id="inputGroupSelect01">
+                              <option selected>數量</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                            </select>
+                          </td>
+                          <td>
+                            XXX
+                          </td>
+                          <td>
+                            XXX
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div name="error" class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div name="card_failed" class="card shadow h-100 py-2">
+          <div class="card-body">
+            <div class="form-group form-inline">
+              <label>起訖日期:</label>
+              <input id="dateStart" type="date" class="mx-2 form-control">
+              <label>-</label>
+              <input id="dateEnd" type="date" class="mx-2 form-control">
+              <label>人員姓名</label>
+              <input id="" type="" class="mx-2 form-control">
+              <label>工號</label>
+              <input id="" type="" class="mx-2 form-control">
+              <button type="button" class="btn btn-primary mx-2">查詢</button>
+            </div>
+            <div class="form-group form-inline">
+              <label>匯出檔案格式:</label>
+              <input type="radio" id="excel" value="excel" class="mx-2 form-control">
+              <label for="excel">excel</label>
+              <input type="radio" id="PDF" value="PDF" class="mx-2 form-control">
+              <label for="PDF">PDF</label>
+              <button type="button" class="btn btn-primary mx-2">匯出</button>
+            </div>
+            <div class="col-lg-12 mb-3 ">
+              <div class="card border-info shadow-lg">
+                <h5 class="card-header text-white text-center bg-info">歷史領用紀錄</h5>
+                <div class="card-body row d-flex">
+                  <div class="table-responsive">
+                    <table class="table text-center" id="dataTable" style="width:100%">
+                      <thead>
+                        <tr>
+                          <th>領用日期</th>
+                          <th>品號</th>
+                          <th>品名</th>
+                          <th>規格</th>
+                          <th>領用數量</th>
+                          <th>已歸還數量</th>
+                          <th>未歸還數量</th>
+                          <th>歸還日期</th>
+                          <th>領用人</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            2021-01-01
+                          </td>
+                          <td>
+                            4020000000
+                          </td>
+                          <td>
+                            铣刀
+                          </td>
+                          <td>
+                            12*12
+                          </td>
+                          <td>
+                            10支
+                          </td>
+                          <td>
+                            10支
+                          </td>
+                          <td>
+                            0支
+                          </td>
+                          <td>
+                            2021-01-05
+                          </td>
+                          <td>
+                            XXX
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            2021-01-01
+                          </td>
+                          <td>
+                            4020000000
+                          </td>
+                          <td>
+                            铣刀
+                          </td>
+                          <td>
+                            12*12
+                          </td>
+                          <td>
+                            10支
+                          </td>
+                          <td>
+                            10支
+                          </td>
+                          <td>
+                            0支
+                          </td>
+                          <td>
+                            2021-01-05
+                          </td>
+                          <td>
+                            XXX
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            2021-01-01
+                          </td>
+                          <td>
+                            4020000000
+                          </td>
+                          <td>
+                            铣刀
+                          </td>
+                          <td>
+                            12*12
+                          </td>
+                          <td>
+                            10支
+                          </td>
+                          <td>
+                            10支
+                          </td>
+                          <td>
+                            0支
+                          </td>
+                          <td>
+                            2021-01-05
+                          </td>
+                          <td>
+                            XXX
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            2021-01-01
+                          </td>
+                          <td>
+                            4020000000
+                          </td>
+                          <td>
+                            铣刀
+                          </td>
+                          <td>
+                            12*12
+                          </td>
+                          <td>
+                            10支
+                          </td>
+                          <td>
+                            10支
+                          </td>
+                          <td>
+                            0支
+                          </td>
+                          <td>
+                            2021-01-05
+                          </td>
+                          <td>
+                            XXX
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            2021-01-01
+                          </td>
+                          <td>
+                            4020000000
+                          </td>
+                          <td>
+                            铣刀
+                          </td>
+                          <td>
+                            12*12
+                          </td>
+                          <td>
+                            10支
+                          </td>
+                          <td>
+                            10支
+                          </td>
+                          <td>
+                            0支
+                          </td>
+                          <td>
+                            2021-01-05
+                          </td>
+                          <td>
+                            XXX
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div name="warning" class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+      </div>
+    </div>
+  </div>
+</div>
+<?php include(__DIR__ . '/../basic/footer.html'); ?>
+
+<script>
+
+  $(function () {
+
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+
+    var today = year + "-" + month + "-" + day;
+    $("#date").attr("value", today);
+
+    h = date.getHours();
+    m = date.getMinutes();
+    s = date.getSeconds();
+    sec = h * 3600 + m * 60 + s
+
+    $("#time").attr("value", sec);
+    formattedDate = formatSecond(sec)
+    $("[name='formattedDate']").text(formattedDate);
+
+    getZImg(formattedDate);
+    getSparkImg(formattedDate);
+  })
+</script>

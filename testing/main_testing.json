@@ -1,0 +1,752 @@
+{
+	"info": {
+		"_postman_id": "528f0406-3e87-4430-8b1a-fd4ad95fccd5",
+		"name": "MIL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "drawPic",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"drawPic\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"PNG\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/drawPic",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"drawPic"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "homeOrder",
+			"item": [
+				{
+					"name": "msg列表",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/file/message?type=報價",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"file",
+								"message"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "報價"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "歷史報價",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"訂單正確\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].開單日期).to.eql('20221011');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/file/message/history?order_id=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"file",
+								"message",
+								"history"
+							],
+							"query": [
+								{
+									"key": "order_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "廠內圖",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string JFIF\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"JFIF\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/file/picture/1010810/AI-03-1AUA-001",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"file",
+								"picture",
+								"1010810",
+								"AI-03-1AUA-001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "msg鎖上",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查詢圖內圖號",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RFID",
+			"item": [
+				{
+					"name": "address",
+					"item": [
+						{
+							"name": "patchAddress",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "PHPSESSID=c44370c629ddd5c6111bd3982dfa10cd",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"address_id\": 1,\r\n        \"address\": \"192.168.11.12\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9003/RFID/address",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9003",
+									"path": [
+										"RFID",
+										"address"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "order_processes",
+					"item": [
+						{
+							"name": "series",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9003/3DConvert/PhaseGallery/order_processes/series?order_processes_id[]=4&order_processes_id[]=6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9003",
+									"path": [
+										"3DConvert",
+										"PhaseGallery",
+										"order_processes",
+										"series"
+									],
+									"query": [
+										{
+											"key": "order_processes_id[]",
+											"value": "4"
+										},
+										{
+											"key": "order_processes_id[]",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "process",
+					"item": [
+						{
+							"name": "process_names",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9003/RFID/process/names",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9003",
+									"path": [
+										"RFID",
+										"process",
+										"names"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "position",
+					"item": [
+						{
+							"name": "getPosition",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9003/RFID/position",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9003",
+									"path": [
+										"RFID",
+										"position"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updatePosition",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9003/RFID/position",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9003",
+									"path": [
+										"RFID",
+										"position"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "floor 取得樓層資料",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9002/RFID/floor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9002",
+							"path": [
+								"RFID",
+								"floor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "floor_image 上傳樓層圖片",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "floor_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "inputFile",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9002/RFID/floor_image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9002",
+							"path": [
+								"RFID",
+								"floor_image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Phasegallery",
+			"item": [
+				{
+					"name": "subfile_image",
+					"item": [
+						{
+							"name": "拿附圖資料",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9003/3DConvert/PhaseGallery/order_processes/subfile_image?[{=&order_processes_subfile_id=854&}]=",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9003",
+									"path": [
+										"3DConvert",
+										"PhaseGallery",
+										"order_processes",
+										"subfile_image"
+									],
+									"query": [
+										{
+											"key": "[{",
+											"value": ""
+										},
+										{
+											"key": "order_processes_subfile_id",
+											"value": "854"
+										},
+										{
+											"key": "}]",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "更新附圖資料",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[{\r\n    \"order_processes_subfile_id\":854,\r\n    \"order_processes_subfile_draw\":\"123\",\r\n    \"order_processes_subfile_tech\":\"456\"\r\n}]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_peter}}/3DConvert/PhaseGallery/order_processes/subfile_image",
+									"host": [
+										"{{url_peter}}"
+									],
+									"path": [
+										"3DConvert",
+										"PhaseGallery",
+										"order_processes",
+										"subfile_image"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "category_processes 拿類別製程",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9002/3DConvert/PhaseGallery/category_processes?date_start=2022-02-13&date_end=2022-02-15&material=DC53-標準程式&ti=NO PVD&processes_id[]=8&processes_id[]=45&processes_id[]=71&category[]=001&category[]=002",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9002",
+							"path": [
+								"3DConvert",
+								"PhaseGallery",
+								"category_processes"
+							],
+							"query": [
+								{
+									"key": "date_start",
+									"value": "2022-02-13"
+								},
+								{
+									"key": "date_end",
+									"value": "2022-02-15"
+								},
+								{
+									"key": "material",
+									"value": "DC53-標準程式"
+								},
+								{
+									"key": "ti",
+									"value": "NO PVD"
+								},
+								{
+									"key": "processes_id[]",
+									"value": "8"
+								},
+								{
+									"key": "processes_id[]",
+									"value": "45"
+								},
+								{
+									"key": "processes_id[]",
+									"value": "71"
+								},
+								{
+									"key": "category[]",
+									"value": "001"
+								},
+								{
+									"key": "category[]",
+									"value": "002"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "訂單瀏覽",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/3DConvert/PhaseGallery/order?date_begin=2022-03--01&date_end=2022-04-12&row_size=5&have_image=1&size=10&cur_page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"3DConvert",
+								"PhaseGallery",
+								"order"
+							],
+							"query": [
+								{
+									"key": "date_begin",
+									"value": "2022-03--01"
+								},
+								{
+									"key": "date_end",
+									"value": "2022-04-12"
+								},
+								{
+									"key": "row_size",
+									"value": "5"
+								},
+								{
+									"key": "have_image",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								},
+								{
+									"key": "cur_page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CRM",
+			"item": [
+				{
+					"name": "image",
+					"item": [
+						{
+							"name": "拿筆畫+圖",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"attach_file_id\":122,\r\n    \"file_id\": [731, 732]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9003/CRM/complaint/complaint/image",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9003",
+									"path": [
+										"CRM",
+										"complaint",
+										"complaint",
+										"image"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "劃記ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "system",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "detail",
+							"item": [
+								{
+									"name": "取得使用者資料",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:9002/system/user/detail",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9002",
+											"path": [
+												"system",
+												"user",
+												"detail"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "編輯使用者資料",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "[\r\n    {\r\n        \"user_id\": 7,\r\n        \"user_name\": \"nknu_777\",\r\n        \"gender\": \"男\",\r\n        \"email\": \"777@gmail.com\",\r\n        \"module_id\": [3, 4],\r\n        \"edit_time\": \"2022/01/01\"\r\n    },\r\n    {\r\n        \"user_id\": 8,\r\n        \"user_name\": \"nknu_888\",\r\n        \"gender\": \"女\",\r\n        \"email\": \"8@gmail.com\",\r\n        \"module_id\": [1, 2],\r\n        \"edit_time\": \"2022/02/02\"\r\n    }\r\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:9002/system/user/detail",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9002",
+											"path": [
+												"system",
+												"user",
+												"detail"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "刪除使用者資料",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "[\r\n    {\r\n        \"user_id\": 18\r\n    },\r\n    {\r\n        \"user_id\": 19\r\n    }\r\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:9002/system/user/detail",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "9002",
+											"path": [
+												"system",
+												"user",
+												"detail"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8082",
+			"type": "default"
+		}
+	]
+}

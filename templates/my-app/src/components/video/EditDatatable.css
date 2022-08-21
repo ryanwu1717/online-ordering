@@ -1,0 +1,34 @@
+.single_line .rdt_TableCol {
+    font-size: large;
+    font-weight: bold;
+    background-color: #c0cbda8a;
+}
+.single_line .rdt_TableCell {
+    font-size: large;
+    text-align: center;
+}
+.server_side .rdt_TableCol {
+    font-size: large;
+    font-weight: bold;
+}
+.server_side .rdt_TableCell {
+    font-size: large;
+    text-align: center;
+}
+.update{
+    background-color: #E6E6FA;
+    border-color: #E6E6FA;
+    color: #00008B;
+    font-size: large;
+    font-weight: bold;
+}
+.update:hover{
+    background-color:#9370DB;
+    border-color: #9370DB;
+    transition: 0.7s;
+}
+.update:focus {     
+    background-color:#9370DB; 
+    box-shadow: 0 0 0 2px #9370DB;
+    border-color: #9370DB;
+}

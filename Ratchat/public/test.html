@@ -1,0 +1,14 @@
+<script>
+// var conn = new WebSocket('ws://172.24.40.106:8004/ws/');
+var conn = new WebSocket('ws://10.0.1.4:8101/');
+conn.onopen = function(e) {
+    conn.send("My name is John");
+};
+
+conn.onmessage = function(e) {
+    console.log(e.data);
+};
+conn.onclose = function(e) {
+    console.log(e);
+}
+</script>

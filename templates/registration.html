@@ -1,0 +1,144 @@
+<?php include(__DIR__ . '/basic/header.html'); ?>
+
+<div class="col-12">
+    <div class="card shadow mb-4">
+        <div class="card-header">
+            綁定帳號
+        </div>
+        <div class="card-body">
+            <form id="registrationFrom">
+                <fieldset class="form-group row">
+                    <legend class="col-form-label col-sm-2 float-sm-left pt-0">部門</legend>
+                    <div class="col-sm-10"  id="moduleGroup">
+                      <!-- <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                        <label class="form-check-label" for="gridRadios1">
+                          First radio
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                        <label class="form-check-label" for="gridRadios2">
+                          Second radio
+                        </label>
+                      </div>
+                      <div class="form-check disabled">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+                        <label class="form-check-label" for="gridRadios3">
+                          Third disabled radio
+                        </label>
+                      </div> -->
+                    </div>
+                  </fieldset>
+               
+                
+                <div class="form-group">
+                    <label for="exampleInputEmail1">郵件</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com" required>
+                    
+                </div>
+               
+               
+                <button type="submit" class="btn btn-primary">更新資料</button>
+            </form>
+        </div>
+    </div>
+</div>
+<?php include(__DIR__ . '/basic/footer.html'); ?>
+<script type="text/javascript" >
+$(function() {
+    getModule();
+    
+    $('#registrationFrom').on('submit',function(e){
+        e.preventDefault();
+        updateRegistration();
+    })
+});
+
+function getRegistration(){
+    $.ajax({
+      url: `/system/user/registration`,
+      type: 'get',
+      data:{
+       
+      },
+      dataType: 'json',
+      success: function(response) {
+       $.each(response,function(){
+        //    $("#exampleFormControlSelectModule option select").val(this.module_id);
+            if (this.module_id != null) {
+                $(`#defaultCheck${this.module_id}`).attr('checked','checked');
+
+            }
+            if (this.email!= null) {
+                $("#exampleInputEmail1").val(this.email);
+
+            }
+       })
+      }
+    });
+}
+function getModule(){
+    $.ajax({
+      url: `/setting/module`,
+      type: 'get',
+      data:{
+      },
+      dataType: 'json',
+      success: function(response) {
+        $.each(response,function(){
+            $('#moduleGroup').append(`
+                    <div class="form-check form-check-inline col-auto">
+                        <input class="form-check-input" type="checkbox" value="${this.id}" name="modulecheckbox" required id="defaultCheck${this.id}">
+                        <label class="form-check-label" for="defaultCheck${this.id}">
+                          ${this.name}
+                        </label>
+                      </div> `)
+
+        })
+        checkRequired()
+        getRegistration();
+        // console.log(module_id)
+      }
+    });
+  }
+  function checkRequired(){
+    var requiredCheckboxes = $('[name="modulecheckbox"]');
+    requiredCheckboxes.change(function(){
+        if(requiredCheckboxes.is(':checked')) {
+            requiredCheckboxes.removeAttr('required');
+        } else {
+            requiredCheckboxes.attr('required', 'required');
+        }
+    });
+  }
+  function updateRegistration(){
+    //   var module_id = $('#exampleFormControlSelectModule').val();
+      var moduleArr = [];
+      var email = $('#exampleInputEmail1').val();
+      $('[name="modulecheckbox"]:checked').each(function(){
+        moduleArr.push($(this).val())
+      })
+      console.log(moduleArr)
+
+    $.ajax({
+      url: `/system/user/registration`,
+      type: 'patch',
+      data:{
+        // module_id:module_id,
+        moduleArr:moduleArr,
+        email:email
+      },
+      dataType: 'json',
+      success: function(response) {
+        if(response.status == 'success'){
+            $('#exampleModal .modal-title').html('綁定帳號')
+            $('#exampleModal .modal-footer').html(`<button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">確定</button>`)
+            $('#exampleModal .modal-body').html(`更新成功`);
+            $('#exampleModal').modal('show');
+        }
+      }
+    });
+  }
+</script>

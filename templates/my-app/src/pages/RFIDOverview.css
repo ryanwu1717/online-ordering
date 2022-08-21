@@ -1,0 +1,24 @@
+.history_table .rdt_TableCol {
+    font-size: large;
+    font-weight: bold;
+    background-color: #c0cbda8a;
+}
+
+.history_table .rdt_TableCell {
+    font-size: large;
+    text-align: center;
+}
+
+.error .rdt_TableCol {
+    font-size: large;
+    font-weight: bold;
+    background-color: #c0cbda8a;
+}
+
+.error .rdt_TableCell {
+    font-size: large;
+}
+
+.nav-link {
+    font-size: large;
+}

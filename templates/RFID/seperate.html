@@ -1,0 +1,332 @@
+<?php include(__DIR__.'/../basic/header.html'); ?>
+<!-- Begin Page Content -->
+<!-- Page Heading -->
+
+<!-- Page Heading -->
+<!-- <h3 class="h3 mb-4 text-gray-800">熱處理分單</h3> -->
+<!-- <label style="font-size: 18px;">偵測到製令單號、圖號及人員Tag將自動帶入資訊，並顯示製令單</label> -->
+
+<div id="seperate" class="row row-cols-1 row-cols-md-3">
+    <div class="col-lg-6 mb-4">
+        <label style="font-size: 18px;">偵測到製令單號、圖號及人員Tag將自動帶入資訊，並顯示製令單</label>
+    </div>
+    <div class="col-lg-6 mb-4 row justify-content-end">
+        <button type="button" class="btn btn-info mx-2"><a class="text-white" href="/RFID">RFID總覽</a></button>
+        <button type="button" class="btn btn-info mx-2"><a class="text-white" href="/RFID/advance">提前交貨</a></button>
+        <button type="button" class="btn btn-info mx-2"><a class="text-white" href="/RFID/modify">修改製程</a></button>
+        <button type="button" class="btn btn-info mx-2"><a class="text-white" href="/RFID/dispatch">廠内派工情形</a></button>
+        <button type="button" class="btn btn-info mx-2"><a class="text-white" href="/RFID/seperate">熱處理分單</a></button>
+    </div>
+    <div class="col-lg-9 mb-4">
+        <div class="card">
+            <h5 class="card-header text-primary">分單資訊</h5>
+            <div class="card-body row row-cols-1 row-cols-md-3">
+                <div class="form-group form-inline col-lg-12 mb-4">
+                    <label>原始製令單別單號:</label>
+                    <input class="mx-3 my-3" type="text" id="type">
+                    <label>-</label>
+                    <input class="mx-3 my-3" type="text" id="number">
+                    <label>客戶圖號:</label>
+                    <input class="mx-3 my-3" type="text" id="imageNumber">
+                </div>
+                <div id="" class="col-lg-6 mb-4">
+                    <div class="card">
+                        <h5 class="card-header text-primary">鹽浴爐</h5>
+                        <div class="row d-flex align-items-center justify-content-center card-body ">
+                            <div class="form-group form-inline">
+                                <label>SKH9:</label>
+                                <button id="reduce" type="button" class="mx-3 my-3 btn btn-secondary font-weight-bold">-
+                                </button>
+                                <input type="text" id="SKH9" onchange="updateValue(this, this.value)"
+                                    class="form-control mx-3 my-3 input-number text-center" value="0" min="0" max="10">
+                                <button id="add" type="button" class="mx-3 my-3 btn btn-primary font-weight-bold">+
+                                </button>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label>SKH55:</label>
+                                <button id="reduce" type="button" class="mx-3 my-3 btn btn-secondary font-weight-bold">-
+                                </button>
+                                <input type="text" id="SKH55" onchange="updateValue(this, this.value)"
+                                    class="form-control mx-3 my-3 input-number text-center" value="0" min="0" max="10">
+                                <button id="add" type="button" class="mx-3 my-3 btn btn-primary font-weight-bold">+
+                                </button>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label>M42:</label>
+                                <button id="reduce" type="button" class="mx-3 my-3 btn btn-secondary font-weight-bold">-
+                                </button>
+                                <input type="text" id="M42" onchange="updateValue(this, this.value)"
+                                    class="form-control mx-3 my-3 input-number text-center" value="0" min="0" max="10">
+                                <button id="add" type="button" class="mx-3 my-3 btn btn-primary font-weight-bold">+
+                                </button>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label>yXR3:</label>
+                                <button id="reduce" type="button" class="mx-3 my-3 btn btn-secondary font-weight-bold">-
+                                </button>
+                                <input type="text" id="yXR3" onchange="updateValue(this, this.value)"
+                                    class="form-control mx-3 my-3 input-number text-center" value="0" min="0" max="10">
+                                <button id="add" type="button" class="mx-3 my-3 btn btn-primary font-weight-bold">+
+                                </button>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label>SVJ2:</label>
+                                <button id="reduce" type="button" class="mx-3 my-3 btn btn-secondary font-weight-bold">-
+                                </button>
+                                <input type="text" id="SVJ2" onchange="updateValue(this, this.value)"
+                                    class="form-control mx-3 my-3 input-number text-center" value="0" min="0" max="10">
+                                <button id="add" type="button" class="mx-3 my-3 btn btn-primary font-weight-bold">+
+                                </button>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label>4140:</label>
+                                <button id="reduce" type="button" class="mx-3 my-3 btn btn-secondary font-weight-bold">-
+                                </button>
+                                <input type="text" id="4140" onchange="updateValue(this, this.value)"
+                                    class="form-control mx-3 my-3 input-number text-center" value="0" min="0" max="10">
+                                <button id="add" type="button" class="mx-3 my-3 btn btn-primary font-weight-bold">+
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="" class="col-lg-6 mb-4">
+                    <div class="card">
+                        <h5 class="card-header text-primary">真空爐</h5>
+                        <div class="row d-flex align-items-center justify-content-center card-body ">
+                            <div class="form-group form-inline">
+                                <label>SKD61:</label>
+                                <button id="reduce" type="button" class="mx-3 my-3 btn btn-secondary font-weight-bold">-
+                                </button>
+                                <input type="text" id="SKD61" onchange="updateValue(this, this.value)"
+                                    class="form-control mx-3 my-3 input-number text-center" value="0" min="0" max="10">
+                                <button id="add" type="button" class="mx-3 my-3 btn btn-primary font-weight-bold">+
+                                </button>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label>DC53:</label>
+                                <button id="reduce" type="button" class="mx-3 my-3 btn btn-secondary font-weight-bold">-
+                                </button>
+                                <input type="text" id="DC53" onchange="updateValue(this, this.value)"
+                                    class="form-control mx-3 my-3 input-number text-center" value="0" min="0" max="10">
+                                <button id="add" type="button" class="mx-3 my-3 btn btn-primary font-weight-bold">+
+                                </button>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label>MIL-Tip:</label>
+                                <button id="reduce" type="button" class="mx-3 my-3 btn btn-secondary font-weight-bold">-
+                                </button>
+                                <input type="text" id="MIL-Tip" onchange="updateValue(this, this.value)"
+                                    class="form-control mx-3 my-3 input-number text-center" value="0" min="0" max="10">
+                                <button id="add" type="button" class="mx-3 my-3 btn btn-primary font-weight-bold">+
+                                </button>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label>1.2365:</label>
+                                <button id="reduce" type="button" class="mx-3 my-3 btn btn-secondary font-weight-bold">-
+                                </button>
+                                <input type="text" id="1.2365" onchange="updateValue(this, this.value)"
+                                    class="form-control mx-3 my-3 input-number text-center" value="0" min="0" max="10">
+                                <button id="add" type="button" class="mx-3 my-3 btn btn-primary font-weight-bold">+
+                                </button>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label>1.2367:</label>
+                                <button id="reduce" type="button" class="mx-3 my-3 btn btn-secondary font-weight-bold">-
+                                </button>
+                                <input type="text" id="1.2367" onchange="updateValue(this, this.value)"
+                                    class="form-control mx-3 my-3 input-number text-center" value="0" min="0" max="10">
+                                <button id="add" type="button" class="mx-3 my-3 btn btn-primary font-weight-bold">+
+                                </button>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label>榮SKD61:</label>
+                                <button id="reduce" type="button" class="mx-3 my-3 btn btn-secondary font-weight-bold">-
+                                </button>
+                                <input type="text" id="SKD61" onchange="updateValue(this, this.value)"
+                                    class="form-control mx-3 my-3 input-number text-center" value="0" min="0" max="10">
+                                <button id="add" type="button" class="mx-3 my-3 btn btn-primary font-weight-bold">+
+                                </button>
+                            </div>
+                            <div class="form-group form-inline">
+                                <label>榮SKD11:</label>
+                                <button id="reduce" type="button" class="mx-3 my-3 btn btn-secondary font-weight-bold">-
+                                </button>
+                                <input type="text" id="SKD11" onchange="updateValue(this, this.value)"
+                                    class="form-control mx-3 my-3 input-number text-center" value="0" min="0" max="10">
+                                <button id="add" type="button" class="mx-3 my-3 btn btn-primary font-weight-bold">+
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="seperateInfo" class="col-lg-3 mb-4">
+        <div class="card">
+            <h5 class="card-header text-primary">分單標籤</h5>
+            <div id="infoCardBody" class="card-body table-responsive">
+                <div id="tagSampleDiv" class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                    <div class="row mx-0 justify-content-center card-body">
+                        <div class="text-center">
+                            <div>
+                                <h5 id="processNum" data-id="0">製令單別單號-流水號</h5>
+                            </div>
+                            <div>
+                                <h5 id="imgNum">客戶圖號</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-9 mb-4">
+
+        <div id="staffInfo" class="col-lg-12 mb-4">
+            <div class="card">
+                <h5 class="card-header text-primary">操作人員資訊</h5>
+                <div class="row d-flex align-items-center justify-content-center card-body ">
+                    <div class="col-lg-2 mb-4">
+                        <img src="/img/user.jpeg" width="200px" class="img-fluid img-thumbnail rounded float-left"
+                            alt="...">
+                    </div>
+                    <div class="col-lg-10 mb-4">
+                        <div>
+                            <label>職編:</label>
+                            <label>001</label>
+                        </div>
+                        <div>
+                            <label>姓名:</label>
+                            <label>XXX</label>
+                        </div>
+                        <div>
+                            <label>操作時間:</label>
+                            <label>2021-10-15</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="processInfo" class="col-lg-12 mb-4">
+
+            <div class="card">
+                <h5 class="card-header text-primary">製令單 5000-1091215010</h5>
+                <div class="card-body ">
+
+                    <div>
+                        <img src="/img/process.jpg" class="img-fluid img-thumbnail rounded float-left" alt="...">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<?php include(__DIR__.'/../basic/footer.html'); ?>
+
+<script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+</body>
+<script>
+    var setting = {
+        "lengthChange": true,
+        "destroy": true,
+        "info": true,
+        "autoWidth": true,
+        "order": [],
+        "scrollY": "80vh",
+        "searching": false,
+        "scrollCollapse": true,
+        "scrollX": true,
+        "ordering": false,
+        "language": {
+            "processing": "處理中...",
+            "loadingRecords": "載入中...",
+            "lengthMenu": "顯示 _MENU_ 項結果",
+            "zeroRecords": "沒有符合的結果",
+            "info": "顯示第 _START_ 至 _END_ 項結果，共 _TOTAL_ 項",
+            "infoEmpty": "顯示第 0 至 0 項結果，共 0 項",
+            "infoFiltered": "(從 _MAX_ 項結果中過濾)",
+            "infoPostFix": "",
+            "search": "搜尋:",
+            "paginate": {
+                "first": "第一頁",
+                "previous": "上一頁",
+                "next": "下一頁",
+                "last": "最後一頁"
+            },
+            "aria": {
+                "sortAscending": ": 升冪排列",
+                "sortDescending": ": 降冪排列"
+            }
+        }
+    };
+    $(function () {
+        $('#order_data').DataTable(JSON.parse(JSON.stringify(setting)));
+        $('#work_data').DataTable(JSON.parse(JSON.stringify(setting)));
+
+        $("#add").click(function () {
+            type = $("#type").val()
+            number = $("#number").val()
+            imageNumber = $("#imageNumber").val()
+
+            num = parseInt($("#seperateNumber").val())
+            if (num < 10) {
+                $("#seperateNumber").attr('value', num + 1)
+                addTagDiv(num);
+                // tagDiv = $("#tagSampleDiv").clone()
+                // processNum = type + "-" + number + "-" + (num + 1)
+                // tagDiv.find('#processNum').attr("data-id", num + 1)
+                // tagDiv.find('#processNum').text(processNum)
+                // tagDiv.find('#processNum').attr('id', processNum)
+                // tagDiv.find('#imgNum').text(imageNumber)
+                // tagDiv.find('#imgNum').attr('id', imageNumber)
+                // tagDiv.attr("id", "tag" + (num + 1))
+                // $('#infoCardBody').append(tagDiv)
+            }
+        });
+
+        $("#reduce").click(function () {
+
+            num = parseInt($("#seperateNumber").val())
+            if (num > 0) {
+                $("#seperateNumber").attr('value', num - 1)
+                tagID = "tag" + num
+                $(`#${tagID}`).remove()
+            }
+        });
+    })
+    function updateValue(obj, inputVal) {
+        $(obj).value = inputVal;
+        console.log($(obj).val())
+    }
+
+    type = $("#type").val()
+    number = $("#number").val()
+    imageNumber = $("#imageNumber").val()
+
+    function addTagDiv(num) {
+        type = $("#type").val()
+        number = $("#number").val()
+        imageNumber = $("#imageNumber").val()
+
+        tagDiv = $("#tagSampleDiv").clone()
+        processNum = type + "-" + number + "-" + (num + 1)
+        tagDiv.find('#processNum').attr("data-id", num + 1)
+        tagDiv.find('#processNum').text(processNum)
+        tagDiv.find('#processNum').attr('id', processNum)
+        tagDiv.find('#imgNum').text(imageNumber)
+        tagDiv.find('#imgNum').attr('id', imageNumber)
+        tagDiv.attr("id", "tag" + (num + 1))
+        $('#infoCardBody').append(tagDiv)
+
+    }
+
+</script>
+
+</html>

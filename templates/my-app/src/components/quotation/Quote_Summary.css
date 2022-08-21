@@ -1,0 +1,34 @@
+.rfid_title {
+    color: #FFF;
+    background: #889bff !important;
+    font-weight: bold;
+    text-align: center;
+    border: #889bff;
+}
+
+.rfid_title:hover {
+    background: #4f5eb6 !important;
+    border: #4f5eb6;
+}
+
+.text-dark {
+    color: black;
+    font-weight: bold;
+}
+
+
+.text-title {
+    color: rgb(88, 88, 88);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.history_table .rdt_TableCol {
+    width: 100%;
+    font-weight: bold;
+    background-color: #c0cbda8a;
+}
+
+.history_table .rdt_TableCell {
+    text-align: center;
+}

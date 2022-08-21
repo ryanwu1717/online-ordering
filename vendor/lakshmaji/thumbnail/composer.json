@@ -1,0 +1,28 @@
+{
+    "name": "lakshmaji/thumbnail",
+    "description": "Thumbnails for videos",
+    "keywords": [
+        "Thumbnails", "Laravel", "composer", "video", "FFMpeg","screenshot","thumbnail"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "lakshmaji",
+            "email": ""
+        }
+    ],
+    "require": {
+        "php-ffmpeg/php-ffmpeg": "~0.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lakshmaji\\Thumbnail\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
+
+
+
+
+

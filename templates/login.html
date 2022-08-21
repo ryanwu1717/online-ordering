@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>龍畿-智能估價雲端系統</title>
+
+    <!-- Custom styles for this template-->
+    <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/css/signin.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <form class="form-signin">
+            <div class="text-center mb-4">
+                <img class="mb-4" src="/img/official.jpeg" alt="" width="72" height="72">
+                <h1 class="h3 mb-3 font-weight-normal">龍畿-智能估價雲端系統</h1>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-12 row d-flex justify-content-center">
+                    <label class="col-auto col-form-label" for="inputEmail">帳號：</label>
+                    <div class="col-auto">
+                        <input type="text" id="inputAccount" class="form-control" placeholder="ex.abcd1234" required
+                            autofocus value="nknu">
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-12 row d-flex justify-content-center">
+                    <label class="col-auto col-form-label" for="inputPassword">密碼：</label>
+                    <div class="col-auto">
+                        <input type="password" id="inputPassword" class="form-control" placeholder="ex.Abcd1234"
+                            required value="1qaz@WSX3edc">
+                    </div>
+                </div>
+                <div class="form-group col-sm-12 row d-flex justify-content-center">
+                    <label class="col-form-label col-auto">验证码</label>
+                    <div class="col-auto">
+                        <input class="form-control enterEvent" id="code_num" type="text" name="code_num"
+                            autocomplete="off">
+                    </div>
+                    <div class="col-auto">
+                        <img class="input-group-addon" src="/drawPic" id="code_pic">
+                        <a href="" src="/drawPic">重新產生</a>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <button class="btn btn-block btn-primary" type="submit">登入</button>
+                    <div class="invalid-feedback">Example invalid custom select feedback</div>
+                </div>
+            </div>
+            <p class="mt-5 mb-3 text-muted text-center">&copy; 2021</p>
+        </form>
+    </div>
+</body>
+<!-- Bootstrap core JavaScript-->
+<script src="/vendor/jquery/jquery.min.js"></script>
+
+</html>
+<script>
+    var url = new URL(window.location.href);
+    var next = url.searchParams.get("url");
+    var id = url.searchParams.get("id");
+    var file_id_dest = url.searchParams.get("file_id_dest");
+    if(id != null && file_id_dest != null){
+        next+=`?id=${id}&file_id_dest=${file_id_dest}`;
+    }
+
+    console.log(next)
+    $(document).on('submit','.form-signin',function(e){
+        e.preventDefault();
+        $.ajax({
+            url:'/login',
+            type:'post',
+            data:{
+                account:$('#inputAccount').val(),
+                password:$('#inputPassword').val(),
+                code:$('#code_num').val()
+            },
+            success:function(response){
+                if(next != null){
+                    window.location.href =next;
+
+                }else{
+                    window.location.href = response.href;
+                }
+            },
+            error:function(xhr){
+                let response = JSON.parse(xhr.responseText);
+                $(':submit').closest('div').find('.invalid-feedback').text(response.message);
+                $(':submit').addClass('is-invalid');
+            }
+        })
+    })
+</script>

@@ -1,0 +1,541 @@
+<?php include(__DIR__.'/../basic/header.html'); ?>
+
+<!-- Begin Page Content -->
+
+
+<!-- <h3 class="h3 mb-4 text-gray-800">修改製程</h3> -->
+<!-- <div class="container-md"> -->
+<div class="row row-cols-1 row-cols-md-3">
+    <div class="col-lg-12 mb-4 row justify-content-end">
+        <button type="button" class="btn btn-info mx-2"><a class="text-white" href="/RFID">RFID總覽</a></button>
+        <button type="button" class="btn btn-info mx-2"><a class="text-white" href="/RFID/advance">提前交貨</a></button>
+        <button type="button" class="btn btn-info mx-2"><a class="text-white" href="/RFID/modify">修改製程</a></button>
+        <button type="button" class="btn btn-info mx-2"><a class="text-white" href="/RFID/dispatch">廠内派工情形</a></button>
+        <button type="button" class="btn btn-info mx-2"><a class="text-white" href="/RFID/seperate">熱處理分單</a></button>
+    </div>
+    <div class="col-lg-12 mb-4">
+        <div class="card">
+            <h5 class="card-header text-primary">製程資訊摘要</h5>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="https://memeprod.ap-south-1.linodeobjects.com/user-template/3cb8477b8aa79e8e595d3045a42f1fad.png"
+                            class="img-fluid img-thumbnail rounded float-left" alt="...">
+                        <label>廠內圖</label>
+                    </div>
+                    <div class="row col-md-9 table-responsive ">
+
+                        <table class="table table-borderless " width="100%">
+                            <thead class="border-bottom">
+                                <tr>
+                                    <th>工件製作順序</th>
+                                    <th>
+                                        <span class="circle">1</span>
+                                        <span class="label">207-車床長度</span>
+                                    </th>
+                                    <th>
+                                        <span class="circle">2</span>
+                                        <span class="label">312-CNC外徑</span>
+                                    </th>
+                                    <th>
+                                        <span class="circle">3</span>
+                                        <span class="label">402-熱前粗銑</span>
+                                    </th>
+                                    <th>
+                                        <span class="circle">4</span>
+                                        <span class="label">501-熱前粗研磨</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>目前訂單製作件數</td>
+                                    <td>已完成</td>
+                                    <td>50件</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>預計抵達站別時間</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>2021/08/08</td>
+                                    <td>2021/08/09</td>
+                                </tr>
+                                <tr>
+                                    <td>其他訂單製作件數</td>
+                                    <td><label>200件</label></td>
+                                    <td>200件 </td>
+                                    <td>200件 </td>
+                                    <td>200件 </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row justify-content-end">
+                    <button type="button" class="btn btn-info mx-2">製程順序修改</button>
+                    <button type="button" class="btn btn-success mx-2">新增製程</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 mb-4">
+        <div class="card">
+            <h5 class="card-header text-primary">製程詳細內容</h5>
+            <div class="card-body">
+                <div class="container-fluid scrolling-wrapper">
+                    <div class="scrolling-wrapper row ">
+                        <div class="col-md-3">
+                            <div class="card my-3">
+                                <h5 class="card-header">207-車床長度</h5>
+                                <div class="card-body my-3">
+                                    <div class="">
+                                        <img src="https://memeprod.ap-south-1.linodeobjects.com/user-template/3cb8477b8aa79e8e595d3045a42f1fad.png"
+                                            class="img-fluid img-thumbnail rounded float-left" alt="...">
+                                        <label class="text-center">A-01-傳統車床廠內圖</label>
+                                    </div>
+                                    <div class="card">
+                                        <h5 class="card-header">A-01-傳統車床</h5>
+                                        <div class="card-body container">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label class="col">刻度1</label>
+                                                </div>
+                                                <div class="col">
+                                                    <input class="col" value="20">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label class="col">刻度2</label>
+                                                </div>
+                                                <div class="col">
+                                                    <input class="col" value="10">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label class="col">刻度3</label>
+                                                </div>
+                                                <div class="col">
+                                                    <input class="col" value="30">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card my-3">
+                                <h5 class="card-header">312-CNC外徑</h5>
+                                <div class="card-body my-3">
+                                    <div class="">
+                                        <img src="https://memeprod.ap-south-1.linodeobjects.com/user-template/3cb8477b8aa79e8e595d3045a42f1fad.png"
+                                            class="img-fluid img-thumbnail rounded float-left" alt="...">
+                                        <label class="text-center">B-01-CNC車床廠內圖</label>
+                                    </div>
+                                    <div class="card my-2">
+                                        <h5 class="card-header">B-01-CNC車床</h5>
+                                        <div class="card-body container">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label class="col">刻度1</label>
+                                                </div>
+                                                <div class="col">
+                                                    <input class="col" value="20">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label class="col">刻度2</label>
+                                                </div>
+                                                <div class="col">
+                                                    <input class="col" value="10">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label class="col">刻度3</label>
+                                                </div>
+                                                <div class="col">
+                                                    <input class="col" value="30">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card my-3">
+                                <h5 class="card-header">402-熱前粗銑</h5>
+                                <div class="card-body my-3">
+                                    <div class="">
+                                        <img src="https://memeprod.ap-south-1.linodeobjects.com/user-template/3cb8477b8aa79e8e595d3045a42f1fad.png"
+                                            class="img-fluid img-thumbnail rounded float-left" alt="...">
+                                        <label class="text-center">C-01-銑床廠內圖</label>
+                                    </div>
+                                    <div class="card my-2">
+                                        <h5 class="card-header">C-01-銑床</h5>
+                                        <div class="card-body container">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label class="col">刻度1</label>
+                                                </div>
+                                                <div class="col">
+                                                    <input class="col" value="20">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label class="col">刻度2</label>
+                                                </div>
+                                                <div class="col">
+                                                    <input class="col" value="10">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label class="col">刻度3</label>
+                                                </div>
+                                                <div class="col">
+                                                    <input class="col" value="30">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card my-3">
+                                <h5 class="card-header">501-熱前粗研磨</h5>
+                                <div class="card-body my-3">
+                                    <div class="">
+                                        <img src="https://memeprod.ap-south-1.linodeobjects.com/user-template/3cb8477b8aa79e8e595d3045a42f1fad.png"
+                                            class="img-fluid img-thumbnail rounded float-left" alt="...">
+                                        <label class="text-center">D-01-無心磨床(18型)廠內圖</label>
+                                    </div>
+                                    <div class="card my-2">
+                                        <h5 class="card-header">D-01-無心磨床(18型)</h5>
+                                        <div class="card-body container">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label class="col">刻度1</label>
+                                                </div>
+                                                <div class="col">
+                                                    <input class="col" value="20">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label class="col">刻度2</label>
+                                                </div>
+                                                <div class="col">
+                                                    <input class="col" value="10">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label class="col">刻度3</label>
+                                                </div>
+                                                <div class="col">
+                                                    <input class="col" value="30">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-end">
+                    <button type="button" class="btn btn-warning mx-2">取消</button>
+                    <button type="button" class="btn btn-info mx-2">儲存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div class="container-fluid scrolling-wrapper"> -->
+    <div class="col-lg-12 mb-4">
+        <div class="card">
+            <h5 class="card-header text-primary">問題回報</h5>
+            <div class="card-body">
+                <div class="form-row form-inline">
+                    <div class="col-md-auto">
+                        <label class="">問題分類:</label>
+                    </div>
+                    <div class="col-md-auto">
+                        <select class=" custom-select">
+                            <option selected disabled>問題分類:</option>
+                            <option>...</option>
+                            <option>...</option>
+                            <option>...</option>
+                            <option>...</option>
+                            <option>...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="justify-content-end mx-3 my-3">
+                        <button type="button" class="btn btn-danger mx-2">問題回報</button>
+                    </div>
+                </div>
+                <div class="row mx-3 my-3">
+                    <div class="col form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">問題1</label>
+                    </div>
+                    <div class="col form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck2">
+                        <label class="form-check-label" for="exampleCheck2">問題2</label>
+                    </div>
+                    <div class="col form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck3">
+                        <label class="form-check-label" for="exampleCheck3">問題3</label>
+                    </div>
+                    <div class="col form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck4">
+                        <label class="form-check-label" for="exampleCheck4">問題4</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+
+<!-- /.container-fluid -->
+
+<!-- </div>
+  </div> -->
+<!-- End of Main Content -->
+<?php include(__DIR__.'/../basic/footer.html'); ?>
+<!-- Bootstrap core JavaScript-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/3.3.5/js/tableexport.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<!-- SelectPure  多選標籤-->
+<script src="/select-pure-0.6.3/select-pure-0.6.3/package/dist/bundle.min.js"></script>
+
+</body>
+<script>
+
+    var autocomplete = new SelectPure(".autocomplete-select", {
+        options: [
+            {
+                label: "雕刻",
+                value: "101",
+            },
+            {
+                label: "滲氮處理",
+                value: "1041",
+            },
+            {
+                label: "真空淡化",
+                value: "142",
+            },
+            {
+                label: "染黑處理",
+                value: "132",
+            },
+            {
+                label: "槍鑽孔",
+                value: "114",
+            },
+            {
+                label: "Fedelini",
+                value: "fe",
+            },
+            {
+                label: "Maccheroni",
+                value: "ma",
+            },
+            {
+                label: "Spaghetti",
+                value: "sp",
+            },
+        ],
+        value: ["sp"],
+        multiple: true,
+        autocomplete: true,
+        icon: "fa fa-times",
+        onChange: value => { console.log(value); },
+    });
+    var autocomplete_2 = new SelectPure(".autocomplete-select2", {
+        options: [
+            {
+                label: "雕刻",
+                value: "101",
+            },
+            {
+                label: "滲氮處理",
+                value: "1041",
+            },
+            {
+                label: "真空淡化",
+                value: "142",
+            },
+            {
+                label: "染黑處理",
+                value: "132",
+            },
+            {
+                label: "槍鑽孔",
+                value: "114",
+            },
+            {
+                label: "Fedelini",
+                value: "fe",
+            },
+            {
+                label: "Maccheroni",
+                value: "ma",
+            },
+            {
+                label: "Spaghetti",
+                value: "sp",
+            },
+        ],
+        value: ["sp"],
+        multiple: true,
+        autocomplete: true,
+        icon: "fa fa-times",
+        onChange: value => { console.log(value); },
+    });
+    var setting = {
+        "lengthChange": true,
+        "destroy": true,
+        "info": true,
+        "autoWidth": true,
+        "order": [],
+        "scrollY": "80vh",
+        "searching": false,
+        "scrollCollapse": true,
+        "scrollX": true,
+        "ordering": false,
+        "language": {
+            "processing": "處理中...",
+            "loadingRecords": "載入中...",
+            "lengthMenu": "顯示 _MENU_ 項結果",
+            "zeroRecords": "沒有符合的結果",
+            "info": "顯示第 _START_ 至 _END_ 項結果，共 _TOTAL_ 項",
+            "infoEmpty": "顯示第 0 至 0 項結果，共 0 項",
+            "infoFiltered": "(從 _MAX_ 項結果中過濾)",
+            "infoPostFix": "",
+            "search": "搜尋:",
+            "paginate": {
+                "first": "第一頁",
+                "previous": "上一頁",
+                "next": "下一頁",
+                "last": "最後一頁"
+            },
+            "aria": {
+                "sortAscending": ": 升冪排列",
+                "sortDescending": ": 降冪排列"
+            }
+        }
+    };
+    $(function () {
+        $('#order_data').DataTable(JSON.parse(JSON.stringify(setting)));
+        $('#work_data').DataTable(JSON.parse(JSON.stringify(setting)));
+
+    })
+    $('#basicModal').on('show.bs.modal', function (e) {
+        console.log(123);
+        $('#basicModal').find('.modal-title').text('讯息');
+        $('#basicModal').find('.modal-body').html(`请稍候...`);
+        $('#basicModal').find('.modal-footer').html(``);
+
+        let element = $(e.relatedTarget);
+        let type = $(element).attr('data-type');
+        console.log(123);
+        if (type == "machine_faulty") {
+            let title = $(`機台故障回報`)
+            let body = $(``)
+            let footer = $(`
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">送出</button>
+            `);
+            $('#basicModal').find('.modal-title').text(title);
+            $('#basicModal').find('.modal-body').html(body);
+            $('#basicModal').find('.modal-footer').html(footer);
+        }
+        else if (type == "retired") {
+            let title = $(`退修`)
+            let body = $(`
+             <div class="row">
+                    <div class="col-md-7">
+                        <img src="https://memeprod.ap-south-1.linodeobjects.com/user-template/3cb8477b8aa79e8e595d3045a42f1fad.png"
+                            class="img-fluid img-thumbnail rounded float-left" alt="...">
+                            <div class="row justify-content-end">
+                                <button type="button" class="btn btn-danger my-3 mx-3">圈選</button>
+
+                            </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-row form-inline">
+                            <label>退修數量:</label>
+                            <input class= "mx-3"type="number" value="0">
+                        </div>
+                        <div class="form-row form-inline">
+                            <div class="col-md-auto">
+                                <label class="">退修原因:</label>
+                                
+                            </div>
+                            <div class="col-md-auto  mx-3 my-3">
+                                <select class=" custom-select">
+                                    <option selected disabled>退修問題分類:</option>
+                                    <option>...</option>
+                                    <option>...</option>
+                                    <option>...</option>
+                                    <option>...</option>
+                                    <option>...</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+            
+                        </div>
+                        <div class="form-row form-inline">
+                            <div class="col-md-auto">
+                                <label >問題選擇:</label>
+                                
+                            </div>
+                            <div class="col-md-9">
+                                <span class="autocomplete-select"> </span>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            `)
+            let footer = $(`
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">送出</button>
+            `);
+            $('#basicModal').find('.modal-title').text(title);
+            $('#basicModal').find('.modal-body').html(body[0].outerHTML);
+            $('#basicModal').find('.modal-footer').html(footer[0].outerHTML);
+        }
+    });
+
+</script>
+
+</html>

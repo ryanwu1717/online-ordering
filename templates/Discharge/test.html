@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>TEST</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
+    <link rel="stylesheet" href="/vendor/chatBot/liveChat.css">
+    <link rel="stylesheet" href="/vendor/chatBot/chatBot.css">
+    <link rel="stylesheet" href="/vendor/rfid/rfid_index.css">
+    <link rel="stylesheet" href="/vendor/index/index.css">
+</head>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<!-- Bootstrap core JavaScript-->
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="/vendor/chart.js/Chart.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="/js/sb-admin-2.min.js"></script>
+<script src="/js/jquery.dataTables.min.js"></script>
+<script src="/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-sidebar/3.3.1/sticky-sidebar.min.js"></script>
+
+<body id="page-top" class="sidebar-toggled">
+    <form>
+        <ul id="uList"></ul>
+    </form>
+</body>
+<script src="/js/json.js"></script>
+<script src="/js/string.js"></script>
+<script src="/js/renderControls.js"></script>
+<script src="/js/jquery.signalR-2.4.2.min.js"></script>
+<script>
+    var jMilHubProxy;
+    $(document).ready(function () {
+        if (typeof $.hubConnection === "undefined") { alert("A"); return; }
+        let jConnection = $.hubConnection("http://172.25.25.34/signalr", { useDefaultPath: false });
+        jMilHubProxy = jConnection.createHubProxy("MilHub");
+        jMilHubProxy.on("NewRfidData", function (cIndexList) {
+            if (typeof appendRfidTags === "function") { appendRfidTags(cIndexList); }
+        });
+        jMilHubProxy.on("NewZData", function (cIndexList) {
+            if (typeof appendZValues === "function") { appendZValues(cIndexList); }
+        });
+        jMilHubProxy.on("NewDischargeData", function (cIndexList) {
+            if (typeof appendDischargeValues === "function") { appendDischargeValues(cIndexList); }
+        });
+        jMilHubProxy.on("NewVibrationData", function (cIndexList) {
+            if (typeof appendVibrationValues === "function") { appendVibrationValues(cIndexList); }
+        });
+
+        jConnection.start().done(function () {
+        });
+    });
+    function appendZValues(cIndexList) {
+        $("<li class='text-dark'></li>").text(cIndexList).appendTo($("#uList"));
+	}
+	
+	$(function () {
+		//renderControl(renderControlCallBack);
+	});
+    function renderControlCallBack() {
+        jVibration_Comport = $("#uVibration_Comport");
+        for (i = 1; i < 10; i++) { jVibration_Comport.append($("<option></option>").val("COM" + i).text("COM" + i)); }
+        jVibration_DeviceID = $("#uVibration_DeviceID");
+        for (i = 1; i < 5; i++) { jVibration_DeviceID.append($("<option></option>").val(i).text(i)); }
+        jVibration_Length = $("#uVibration_Length");
+        for (i = 1; i < 5; i++) { jVibration_Length.append($("<option></option>").val(i).text(i)); }
+
+        json("get", "/Discharge/setting/dataLoad", {}, function (oSetting) {
+            if (oSetting.length == 0) { return; }
+            let pLeftTop; let pRightTop; let pLeftBottom; let pRightBottom;
+            let oArea;
+            let aRfidReader = oSetting.aRfidReader;
+            for (cReaderName in aRfidReader) {
+                alert(aRfidReader[cReaderName].cIP);
+			}
+            
+        });
+    }
+</script>
+
+</html>

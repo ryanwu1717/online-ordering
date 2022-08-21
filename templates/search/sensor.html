@@ -1,0 +1,84 @@
+<?php include(__DIR__ . '/../basic/header.html'); ?>
+<div class="row">
+  <!-- search -->
+  <div class="col-12">
+    <div class="card shadow mb-4">
+      <h5 class="card-header text-primary">溫度、濕度</h5>
+      <div class="card-body row align-items-center" style="height:30vh">
+        <h1 class="col-md-6 row justify-content-center">溫度</h1>
+        <h1 class="col-md-6 row justify-content-center">濕度</h1>
+        <h1 id="temperature" class="col-md-6 row justify-content-center"></h1>
+        <h1 id="humidity" class="col-md-6 row justify-content-center"></h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="card shadow mb-4">
+      <h5 class="card-header text-primary">空氣品質</h5>
+      <div class="card-body row align-items-center" style="height:30vh">
+        <h1 class="col-md-4 row justify-content-center">PM1.0</h1>
+        <h1 class="col-md-4 row justify-content-center">PM2.5</h1>
+        <h1 class="col-md-4 row justify-content-center">PM10</h1>
+        <h1 id="PM1" class="col-md-4 row justify-content-center"></h1>
+        <h1 id="PM25" class="col-md-4 row justify-content-center"></h1>
+        <h1 id="PM10" class="col-md-4 row justify-content-center"></h1>
+      </div>
+    </div>
+  </div>
+</div>
+<?php include(__DIR__ . '/../basic/footer.html'); ?>
+
+<script>
+  $.ajax({
+    url: `/Environment/Quality`,
+    dataType: 'json',
+    method: 'GET',
+    success: function (response) {
+      $('#temperature').text(`${response[0]['temperature']}°C`);
+      $('#humidity').text(`${response[0]['humidity']}%`);
+      $('#PM1').text(`${response[0]['PM1.0']}μg/m3`);
+      $('#PM25').text(`${response[0]['PM2.5']}μg/m3`);
+      $('#PM10').text(`${response[0]['PM10']}μg/m3`);
+
+      //溫度
+      if (response[0]['temperature'] >= 38 || response[0]['temperature'] <= 5) {
+        $('#temperature').attr('style', 'color: #ff0000')
+      }
+      else if (response[0]['temperature'] == 37 || (response[0]['temperature'] >= 6 && response[0]['temperature'] <= 9)) {
+        $('#temperature').attr('style', 'color: #ff7300')
+      }
+      else if (response[0]['temperature'] == 36 || response[0]['temperature'] == 10) {
+        $('#temperature').attr('style', 'color: #DDAA00')
+      }
+      else {
+        $('#temperature').attr('style', 'color: #009c00')
+      }
+      //PM2.5
+      if (response[0]['PM2.5'] >= 0 && response[0]['PM2.5'] <= 15) {
+        $('#PM25').attr('style', 'color: #009c00')
+      }
+      else if (response[0]['PM2.5'] >= 16 && response[0]['PM2.5'] <= 35) {
+        $('#PM25').attr('style', 'color: #DDAA00')
+      }
+      else if (response[0]['PM2.5'] >= 36 && response[0]['PM2.5'] <= 54) {
+        $('#PM25').attr('style', 'color: #ff7300')
+      }
+      else {
+        $('#PM25').attr('style', 'color: #ff0000')
+      }
+      //PM10
+      if (response[0]['PM10'] >= 0 && response[0]['PM10'] <= 50) {
+        $('#PM10').attr('style', 'color: #009c00')
+      }
+      else if (response[0]['PM10'] >= 51 && response[0]['PM10'] <= 100) {
+        $('#PM10').attr('style', 'color: #DDAA00')
+      }
+      else if (response[0]['PM10'] >= 101 && response[0]['PM10'] <= 254) {
+        $('#PM10').attr('style', 'color: #ff7300')
+      }
+      else {
+        $('#PM10').attr('style', 'color: #ff0000')
+      }
+    }
+  });
+</script>

@@ -1,0 +1,74 @@
+.collapse_box {
+    box-sizing: border-box;
+}
+.collapse_section_item {
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 3px;
+    background: rgba(220, 220, 220, .5);
+    transition: all 200ms ease-in-out 50ms;
+    font-family: Helvetica, Arial, Sans-Serif;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16pt;
+    text-align: left;
+}
+.collapse_card1 {
+    background: #faf2a8;
+}
+
+.collapse_card2 {
+    background: #ffe1be;
+}
+
+.collapse_card3 {
+    background: #beffe8;
+}
+
+.collapse_card4 {
+    background: #c7eeff;
+}
+
+.collapse_card5 {
+    background: #b9f0dc;
+}
+.text-black {
+    color: #000;
+    font-weight: bold;
+}
+.collapse_title {
+    color: black;
+    writing-mode: vertical-lr
+}
+.collapse_content_list{
+    height: 100%;
+    /* align-items: center; */
+}
+.default_collapse {
+    height: 220px;
+    width: 100px;
+    color: rgba(255, 255, 255, 0);
+    font-size: 16pt;
+    overflow: hidden;
+}
+
+.expand_collapse {
+    height: 180px;
+    width: auto;
+    min-width: 300px;
+    /* background: #7ab7ff; */
+    color: rgba(255, 255, 255, 1);
+    padding: 0 20px;
+}
+.section_collapse {
+    opacity: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    position: relative;
+    min-height: 30vh;
+    width: 100%;
+    transition: all 200ms ease-in-out 50ms;
+}

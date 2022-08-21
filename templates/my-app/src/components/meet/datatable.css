@@ -1,0 +1,13 @@
+
+.rdt_TableCol_Sortable {
+    font-size: large;
+    font-weight: bold;
+}
+.rdt_TableCell {
+    font-size: large;
+    text-align: center;
+}
+.rdt_TableRow:hover{
+    border: 2px;
+
+}

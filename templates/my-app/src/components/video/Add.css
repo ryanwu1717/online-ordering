@@ -1,0 +1,27 @@
+.title{
+    border-radius: 5px;
+    padding: 12px;
+    top:0;
+    /* right: 100px; */
+    color:white;
+    background-color:#4895ef;
+    font-size:25px;
+}
+.note{
+    border-radius: 5px;
+    padding: 15px;
+    top:0;
+    /* right:0; */
+    color:grey;
+    font-size:20px;
+    background-color:white;
+}
+.bulb {
+    color: #606c70;
+    font-size: 28px;
+}
+
+.bulb:hover {
+    color: #FFCC66;
+    font-size: 28px;
+}

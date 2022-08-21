@@ -1,0 +1,32 @@
+.rfid_title{
+    color: #FFF;
+    background: rgb(103, 58, 183);
+    font-weight: bold;
+    text-align: center;
+}
+.rfid_topic{
+    color: black;
+    font-weight: bold;
+}
+.CheckContent{
+    background-color: #89c7ea;
+    color: #FFF;
+    font-weight: bold;
+}
+.CheckStatus{
+    background-color: #ffbc96;
+    color: #FFF;
+    font-weight: bold;
+}
+.border_right{
+    border-right: 2px solid #FFF;
+    padding-right: 3px;
+}
+.clearLabel{
+    margin: 0px;
+}
+.CheckRunning{
+    background-color: #93d0ba;
+    color: #FFF;
+    font-weight: bold;
+}

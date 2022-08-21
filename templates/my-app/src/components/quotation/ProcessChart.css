@@ -1,0 +1,8 @@
+.resetBtn {
+    background-color: white !important;
+}
+
+.resetBtn:hover {
+    background-color: rgb(118, 151, 180) !important;
+    color: white;
+}

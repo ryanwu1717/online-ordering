@@ -1,0 +1,239 @@
+.index_second_title {
+    color: #5e72da;
+    font-weight: bold;
+}
+
+.border_right {
+    border-right: 2px solid #929292;
+}
+
+.index_list {
+    color: #929292;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.index_small_title_border {
+    padding: 0 8px 0 35px;
+    font-size: 16px;
+    border-right: 2px solid #ffffff;
+}
+
+.index_small_title {
+    padding: 0 8px 0 8px;
+    font-size: 16px;
+}
+
+.index_small_title2 {
+    border-left: 2px solid #ffffff;
+    margin-left: 8px;
+    padding: 0 0px 0 8px;
+    font-size: 20px;
+}
+
+.list_center {
+    text-align: center;
+}
+
+.collapse_box {
+    box-sizing: border-box;
+}
+
+.section_collapse {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    position: relative;
+    min-height: 30vh;
+    width: 900px;
+    transition: all 200ms ease-in-out 50ms;
+    opacity: 0;
+}
+
+.section_item {
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 3px;
+    background: rgba(220, 220, 220, .5);
+    transition: all 200ms ease-in-out 50ms;
+    font-family: Helvetica, Arial, Sans-Serif;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16pt;
+    text-align: left;
+}
+
+.default_collapse {
+    height: 30vh;
+    width: 10vw;
+    color: rgba(255, 255, 255, 0);
+    font-size: 16pt;
+    overflow: hidden;
+}
+
+.expand_collapse {
+    height: 180px;
+    width: 600px;
+    /* background: #7ab7ff; */
+    color: rgba(255, 255, 255, 1);
+    padding: 0 20px;
+}
+
+.collapse_title {
+    color: black;
+    writing-mode: vertical-lr
+}
+
+.card1 {
+    background: #faf2a8;
+}
+
+.card2 {
+    background: #ffe1be;
+}
+
+.card3 {
+    background: #beffe8;
+}
+
+.card4 {
+    background: #c7eeff;
+}
+
+.card5 {
+    background: #b9f0dc;
+}
+
+.text-black {
+    color: #000;
+    font-weight: bold;
+    /* font-size: 20px; */
+}
+
+/* collapse */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	font-family: 'Montserrat', sans-serif;
+}
+
+body{
+	background: #7a75d1;
+}
+
+.wrapper{
+	width: 100%;
+  display:flex;
+  justify-content:center;
+/*   align-items:center; */
+/* 	margin: 200px auto; */
+}
+
+.accordion_wrap ul{
+	display: flex;
+	justify-content: center;
+}
+
+.accordion_wrap .accordion_item{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+	list-style: none;
+	width: 100px;
+	height: 175px;
+	background: #edc856;
+	border-right: 1px solid #a48d2d;
+	cursor: pointer;
+	position: relative;
+	transition: all 0.2s linear;
+  margin-left:20px;
+}
+
+.accordion_wrap .accordion_item:hover,
+.accordion_wrap li.active .accordion_item{
+	background: #a48d2d;
+	border-right: 1px solid #edc856;
+}
+
+.accordion_wrap li:first-child .accordion_item{
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+.accordion_wrap li:last-child .accordion_item,
+.accordion_wrap li:last-child .accordion_menu{
+	border-right: 0px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.accordion_wrap ul li .icon{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background: url('https://i.imgur.com/CKjTVJW.png');
+}
+
+.accordion_wrap ul li.bicycle .icon{
+	background-position: 0 -56px;
+	width: 43px;
+	height: 28px;
+}
+
+
+.accordion_wrap ul li{
+	display: flex;
+}
+
+.accordion_menu{
+	width: 0px;
+	height: 175px;
+	background: #fffaeb;
+	color: #a48d2d;
+	overflow: hidden;
+	transition: width 0.2s ease;
+}
+
+.accordion_wrap ul li.active .accordion_menu{
+	width: 250px;
+}
+
+.accordion_menu .inner_am{
+	padding: 15px;
+}
+
+.accordion_menu .title{
+	font-weight: 600;
+}
+
+.accordion_menu .content{
+	font-size: 13px;
+	font-weight: 300;
+	margin: 10px 0;
+}
+
+.accordion_menu .view_more{
+	padding: 5px;
+	background: #a48d2d;
+	color: #fffaeb;
+	width: 125px;
+	text-align: center;
+	border-radius: 3px;
+	cursor: pointer;
+	font-size: 13px;
+}
+
+.accordion_menu .view_more:hover{
+	text-decoration: underline;
+}
+.content_list{
+    height: 100%;
+    /* align-items: center; */
+}

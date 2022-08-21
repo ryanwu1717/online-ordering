@@ -1,0 +1,66 @@
+<?php include(__DIR__.'/basic/header.html'); ?>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<style>
+    /* The heart of the matter */
+
+    .horizontal-scrollable>.row {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .horizontal-scrollable>.row>.col-xs-4 {
+        display: inline-block;
+        float: none;
+    }
+
+    /* Decorations */
+
+    .col-xs-4 {
+        color: white;
+        font-size: 24px;
+        padding-bottom: 20px;
+        padding-top: 18px;
+    }
+
+    .col-xs-4:nth-child(2n+1) {
+        background: green;
+    }
+
+    .col-xs-4:nth-child(2n+2) {
+        background: black;
+    }
+</style>
+
+<!-- Page Heading -->
+<h3 class="h3 mb-4 text-gray-800">影音串流</h3>
+<div class="embed-responsive embed-responsive-16by9 align-content-center flex-wrap">
+    <audio controls>
+        <source src="/video/1">
+        Your browser does not support the video tag.
+    </audio>
+</div>
+
+
+
+<?php include(__DIR__.'/basic/footer.html'); ?>
+<link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/css/dataTables.checkboxes.css"
+    rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script type="text/javascript"
+    src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
+<script>
+    $.function(function () {
+
+    })
+
+    function getQuestion() {
+        $.ajax({
+            url: '/eSign/getQuestion',
+            type: 'get',
+            dataType: 'json',
+            success: function (response) {
+                $("#Question").append();
+            }
+        });
+    }
+</script>

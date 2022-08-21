@@ -1,0 +1,29 @@
+.blueButton{
+    background-color: #00008B;
+    border-color: #00008B;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+}
+.whiteButton{
+    background-color: #6495ED;
+    border-color: #6495ED;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+}
+.blueButton:hover{
+    background-color:#6495ED;
+    border-color: #6495ED;
+    transition: 0.7s;
+}
+.whiteButton:hover{
+    background-color:#00008B;
+    border-color: #00008B;
+    transition: 0.7s;
+}
+.blueButton:focus {     
+    background-color:#00008B; 
+    box-shadow: 0 0 0 0px #00008B;
+    border-color: #00008B;
+}

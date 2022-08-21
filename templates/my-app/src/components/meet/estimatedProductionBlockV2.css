@@ -1,0 +1,10 @@
+.ant-table-cell {
+    font-size: small;
+}
+
+.ant-table-thead .ant-table-cell {
+    font-size: large;
+    font-weight: bold;
+    background-color: #c0cbda8a;
+    text-align: center;
+}

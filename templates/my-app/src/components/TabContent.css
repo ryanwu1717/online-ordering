@@ -1,0 +1,10 @@
+.tabContent .rdt_TableCol {
+    font-size: large;
+    font-weight: bold;
+    background-color: #c0cbda8a;
+}
+
+.tabContent .rdt_TableCell {
+    font-size: large;
+    text-align: center;
+}

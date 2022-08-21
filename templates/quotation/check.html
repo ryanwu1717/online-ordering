@@ -1,0 +1,127 @@
+<div class="card shadow mb-4 h-100">
+  <div class="card-header">
+    報價確認
+    <i class="fas fa-exclamation-circle" data-toggle="tooltip" data-placement="top" title="請填寫完整報價資訊，確認後寫入資料庫"></i>
+
+  </div>
+  <div class="card-body overflow-auto" id="quotation_check">
+  </div>
+</div>
+
+<script>
+  var v = window.sharedVariable;
+  var id = v['file_id'];
+  var sourcetype = v['type'];
+
+
+  // let file_id = '111';
+  $(function () {
+    console.log(sourcetype)
+    $("#quotation_check").attr('file_id',id);
+    import('/static/quotation/check/js/main.bc0f78c8.js')
+    $('[data-toggle="tooltip"]').tooltip();
+
+    if(sourcetype == 'home'){
+      // $('[name="inputQuotation"]').prop('disabled',true)
+      // $('#btnQuotation').prop('disabled',true)
+      $('#formQuotation').hide()
+      $('#formOutsourcer').hide()
+    }
+    getCurrency();
+    gethistoryQuotation();
+
+    $('#formQuotation').on('submit', function (e) {
+      e.preventDefault();
+    
+
+      inUpdateQuotation();
+    })
+    getdeliveryweek();
+   
+
+  });
+  function getCurrency(){
+    $.ajax({
+      url: `/file/currency`,
+      type: 'get',
+      data: {},
+      dataType: 'json',
+      success: function(response) {
+        // <option value="無"select>無</option>
+        $(response).each(function(index){
+          $('[name="inputQuotation"][data-type="currency"]').append(`<option value="${this.currency_name}" ${this.currency_name=="USD"?'selected':''}>${this.currency_code}</option>`)
+        })
+          
+      }
+    });
+  }
+
+  function getdeliveryweek(){
+    $.ajax({
+        url: `/file/information`,
+        type: 'get',
+        data: {
+          file_id: id,
+        },
+        dataType: 'json',
+        success: function(response) {
+          let delivery_week;
+          $.each(response,function(){
+            delivery_week = this.delivery_week;
+          })
+          $('[name="inputQuotation"][data-type="delivery_week"]').val(delivery_week)
+        }
+      });
+  }
+
+  function  gethistoryQuotation(){
+    $.ajax({
+      url: `/quotation/${id}`,
+      type: 'get',
+      success: function (response) {
+        $(response).each(function () {
+            $('#divQuotation').html(`
+                <label class="col-12">${this.update_time}</label>
+                <label class="col-12">金額：${this.cost} 數量：${this.num} 折扣：${this.discount} 幣別：${this.currency_code}</label>
+                <label class="col-12">註記：${this.descript}  交貨週數：${this.delivery_week}</label>
+            `);
+            return false;
+        })
+      }
+    })
+  }
+
+  function inUpdateQuotation() {
+    // let last_quotation = $('[name="inputQuotation"][data-type="quotation"]').val();
+    // let description = $('[name="inputQuotation"][data-type="description"]').val();
+    // if (description == undefined){
+    //   description=''
+    // }
+
+    var tmpArr = new Object();
+    $('[name="inputQuotation"]').each(function () {
+      if ($(this).val() == undefined) {
+        tmpArr[$(this).data('type')] = '';
+      } else {
+        tmpArr[$(this).data('type')] = $(this).val();
+      }
+
+    });
+    tmpArr['file_id'] = id;
+   
+
+    // console.log( $('[name="inputQuotation"][data-type="quotation"]'))
+    // console.log(last_quotation,description)
+    $.ajax({
+      url: `/quotation`,
+      type: 'post',
+      dataType: 'json',
+      data: {
+        tmpArr
+      },
+      success: function (response) {
+        gethistoryQuotation();
+      }
+    });
+  }
+</script>

@@ -1,0 +1,242 @@
+<?php include(__DIR__ . '/../basic/header.html'); ?>
+<div class="row">
+  <!-- search -->
+  <div class="col-12">
+    <div class="card shadow mb-4">
+      <div class="card-body">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">智慧搜尋</a></li>
+            <li class="breadcrumb-item active" aria-current="page">客戶圖號1040-03</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card shadow mb-4">
+      <div class="card-header">
+        訂單/報價單資料
+      </div>
+      <div class="card-body" id="divModule" style="height:40vh">
+
+        <div class="form-group form-inline">
+          <li class="col-sm-4 col-form-label">客戶名稱 : </li>
+          <label for="input" class="col-sm-8 col-form-label">ATG</label>
+        </div>
+        <div class="form-group form-inline">
+          <li class="col-sm-4 col-form-label">報價單號 : </li>
+          <label for="input" class="col-sm-8 col-form-label">00000000</label>
+        </div>
+        <div class="form-group form-inline">
+          <li class="col-sm-4 col-form-label">報價時間 : </li>
+          <label for="input" class="col-sm-8 col-form-label">20210101</label>
+        </div>
+        <div class="form-group form-inline">
+          <li class="col-sm-4 col-form-label">原始金額 : </li>
+          <label for="input" class="col-sm-8 col-form-label">1000</label>
+        </div>
+        <div class="form-group form-inline">
+          <li class="col-sm-4 col-form-label">製程追加成本 : </li>
+          <label for="input" class="col-sm-8 col-form-label">520</label>
+        </div>
+        <div class="form-group form-inline">
+          <li class="col-sm-4 col-form-label">報價金額 : </li>
+          <label for="input" class="col-sm-8 col-form-label">1520</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card shadow mb-4">
+      <div class="card-header">
+        規格
+      </div>
+      <div class="card-body" id="divModule" style="height:40vh">
+
+        <div class="form-group form-inline">
+          <li class="col-sm-4 col-form-label">材質 : </li>
+          <label for="input" class="col-sm-8 col-form-label">TR25C</label>
+        </div>
+        <div class="form-group form-inline">
+          <li class="col-sm-4 col-form-label">鍍鈦 : </li>
+          <label for="input" class="col-sm-8 col-form-label">0000</label>
+        </div>
+        <div class="form-group form-inline">
+          <li class="col-sm-4 col-form-label">硬度 : </li>
+          <label for="input" class="col-sm-8 col-form-label">00000</label>
+        </div>
+        <div class="form-group form-inline">
+          <li class="col-sm-4 col-form-label">外徑 : </li>
+          <label for="input" class="col-sm-8 col-form-label">09.1D</label>
+        </div>
+        <div class="form-group form-inline">
+          <li class="col-sm-4 col-form-label">長度 : </li>
+          <label for="input" class="col-sm-8 col-form-label">15L</label>
+        </div>
+        <div class="form-group form-inline">
+          <li class="col-sm-4 col-form-label">內孔 : </li>
+          <label for="input" class="col-sm-8 col-form-label">5</label>
+        </div>
+        <div class="form-group form-inline">
+          <li class="col-sm-4 col-form-label">使用原料規格: </li>
+          <label for="input" class="col-sm-8 col-form-label">10D*16L內孔4</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card shadow mb-4">
+      <div class="card-header">
+        客戶圖
+      </div>
+      <div class="card-body" id="divModule" style="height:40vh">
+        <div>
+          <img src="/3DModel/2D.png" class="img-fluid img-thumbnail rounded float-left" alt="...">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div name="processInfo" class="col-lg-12 mb-4">
+    <div class="card border-primary mb-3">
+      <h5 class="card-header text-white text-center bg-primary border-primary">
+        歷史訂單製程資訊
+      </h5>
+      <div class="card-body row row-cols-1 row-cols-md-3">
+        <div class="col-lg-3 mb-3 ">
+          <div class="card border-info shadow-lg">
+            <h5 class="card-header text-white text-center bg-info">207-車床長度</h5>
+            <div class="card-body">
+              <form class="">
+                <div class="form-group">
+                  <label for="mark">分層圖</label>
+                  <img src="/3DModel/2D.png" class="img-fluid img-thumbnail rounded float-left" alt="...">
+                </div>
+                <div class="form-group">
+                  <label for="mark">NC程式碼</label>
+                  <textarea class="form-control" id="mark" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="mark">首件影片</label>
+                  <div class="embed-responsive embed-responsive-16by9 align-content-center flex-wrap">
+                    <video controls>
+                      <source src="/resource/sample.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 mb-3 ">
+          <div class="card border-info shadow-lg">
+            <h5 class="card-header text-white text-center bg-info">207-車床長度</h5>
+            <div class="card-body">
+              <form class="">
+                <div class="form-group">
+                  <label for="mark">分層圖</label>
+                  <img src="/3DModel/2D.png" class="img-fluid img-thumbnail rounded float-left" alt="...">
+                </div>
+                <div class="form-group">
+                  <label for="mark">NC程式碼</label>
+                  <textarea class="form-control" id="mark" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="mark">首件影片</label>
+                  <div class="embed-responsive embed-responsive-16by9 align-content-center flex-wrap">
+                    <video controls>
+                      <source src="/resource/sample.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 mb-3 ">
+          <div class="card border-info shadow-lg">
+            <h5 class="card-header text-white text-center bg-info">207-車床長度</h5>
+            <div class="card-body">
+              <form class="">
+                <div class="form-group">
+                  <label for="mark">分層圖</label>
+                  <img src="/3DModel/2D.png" class="img-fluid img-thumbnail rounded float-left" alt="...">
+                </div>
+                <div class="form-group">
+                  <label for="mark">NC程式碼</label>
+                  <textarea class="form-control" id="mark" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="mark">首件影片</label>
+                  <div class="embed-responsive embed-responsive-16by9 align-content-center flex-wrap">
+                    <video controls>
+                      <source src="/resource/sample.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 mb-3 ">
+          <div class="card border-info shadow-lg">
+            <h5 class="card-header text-white text-center bg-info">207-車床長度</h5>
+            <div class="card-body">
+              <form class="">
+                <div class="form-group">
+                  <label for="mark">分層圖</label>
+                  <img src="/3DModel/2D.png" class="img-fluid img-thumbnail rounded float-left" alt="...">
+                </div>
+                <div class="form-group">
+                  <label for="mark">NC程式碼</label>
+                  <textarea class="form-control" id="mark" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="mark">首件影片</label>
+                  <div class="embed-responsive embed-responsive-16by9 align-content-center flex-wrap">
+                    <video controls>
+                      <source src="/resource/sample.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<?php include(__DIR__ . '/../basic/footer.html'); ?>
+
+<script>
+  $(function () {
+
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+
+    var today = year + "-" + month + "-" + day;
+    $("#date").attr("value", today);
+
+    h = date.getHours();
+    m = date.getMinutes();
+    s = date.getSeconds();
+    sec = h * 3600 + m * 60 + s
+
+    $("#time").attr("value", sec);
+    formattedDate = formatSecond(sec)
+    $("[name='formattedDate']").text(formattedDate);
+
+    getZImg(formattedDate);
+    getSparkImg(formattedDate);
+  })
+</script>

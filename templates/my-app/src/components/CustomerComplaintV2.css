@@ -1,0 +1,17 @@
+.bulb {
+    color: #606c70;
+    font-size: 28px;
+}
+
+.bulb:hover {
+    color: #FFCC66;
+    font-size: 28px;
+}
+
+.rfid_title {
+    color: #FFF;
+    background: #889bff !important;
+    font-weight: bold;
+    text-align: center;
+    border: #889bff;
+}

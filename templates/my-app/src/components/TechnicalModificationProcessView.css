@@ -1,0 +1,18 @@
+.dropdown-toggle {
+    color: #fff;
+    background-color: #5e789f;
+    border-color: #5e789f;
+}
+
+.dropdown-toggle:hover .dropdown-toggle:focus {
+    color: #fff;
+    background-color: #26508f;
+    border-color: #5e789f;
+}
+
+.truncate {
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

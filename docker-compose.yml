@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+
+  webserver:
+    build: ./webserver
+    container_name: mil_webserver
+    volumes:
+      - ./:/var/www/html
+      # - /Volumes/業務歸檔轉存:/Volumes/業務歸檔轉存
+      #- /Volumes/TEST:/Volumes/TEST
+    ports:
+      - 8082:80
+
+  mil:
+    build: .
+    container_name: mil_python
+    volumes:
+      - ./:/app
+    ports:
+      - 8090:8090

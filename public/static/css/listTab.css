@@ -1,0 +1,70 @@
+.collapse_box {
+  box-sizing: border-box;
+}
+.collapse_section_item {
+  background: hsla(0, 0%, 86%, 0.5);
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: Helvetica, Arial, Sans-Serif;
+  font-size: 16pt;
+  font-weight: 500;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: left;
+  transition: all 0.2s ease-in-out 50ms;
+}
+.collapse_card1 {
+  background: #dce3f9;
+}
+.collapse_card2 {
+  background: #e6e7e9;
+}
+.collapse_card3 {
+  background: #d2f4e8;
+}
+.collapse_card4 {
+  background: #fadbd8;
+}
+.collapse_card5 {
+  background: #fdf3d8;
+}
+.text-black {
+  color: #000;
+  font-weight: 700;
+}
+.collapse_title {
+  color: #000;
+  -webkit-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: vertical-lr;
+}
+.collapse_content_list {
+  height: 100%;
+}
+.default_collapse {
+  color: hsla(0, 0%, 100%, 0);
+  font-size: 16pt;
+  height: 220px;
+  overflow: hidden;
+  width: 100px;
+}
+.expand_collapse {
+  color: black;
+  height: 180px;
+  min-width: 300px;
+  padding: 0 20px;
+  width: auto;
+}
+.section_collapse {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-height: 30vh;
+  opacity: 1;
+  position: relative;
+  transition: all 0.2s ease-in-out 50ms;
+  width: 100%;
+}
+/*# sourceMappingURL=listTab.css.map*/

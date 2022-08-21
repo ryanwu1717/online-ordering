@@ -1,0 +1,9 @@
+.mainPage .rdt_TableCol {
+    font-size: large;
+    font-weight: bold;
+}
+
+.mainPage .rdt_TableCell {
+    font-size: large;
+    text-align: center;
+}

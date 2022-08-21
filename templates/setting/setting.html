@@ -1,0 +1,244 @@
+<?php include(__DIR__ . '/../basic/header.html'); ?>
+<div class="row">
+  <!-- search -->
+  <div class="col-12">
+    <div class="card shadow mb-4">
+      <div class="card-body">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">推播設定</a></li>
+            <li class="breadcrumb-item active" aria-current="page">推播通知設定</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card shadow mb-4">
+      <div class="card-header">
+        項目編輯
+      </div>
+      <div class="card-body" id="divModule">
+        <div class="form-group form-inline">
+          <label for="input" class="col-sm-4 col-form-label">新增項目:</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" id="input" placeholder="Example input">
+          </div>
+          <button type="button" class="col-sm-2 btn btn-primary">新增</button>
+        </div>
+        <div class="table-responsive">
+          <table class="table text-center" id="dataTable" style="width:100%">
+            <thead>
+              <tr>
+                <th></th>
+                <th>項目名稱</th>
+                <th>新增人</th>
+                <th>編輯 / 刪除</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td>
+                  項目1
+                </td>
+                <td>
+                  XXX
+                </td>
+                <td>
+                  <i class="fas fa-pen-square text-info"></i>編輯 <i class="fas fa-minus-circle text-danger"></i>刪除
+                </td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td>
+                  項目2
+                </td>
+                <td>
+                  XXX
+                </td>
+                <td>
+                  <i class="fas fa-pen-square text-info"></i>編輯 <i class="fas fa-minus-circle text-danger"></i>刪除
+
+                </td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td>
+                  項目3
+                <td>
+                  XXX
+                </td>
+                </td>
+                <td>
+                  <i class="fas fa-pen-square text-info"></i>編輯 <i class="fas fa-minus-circle text-danger"></i>刪除
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="card shadow mb-4">
+      <div class="card-header">
+        通知設定
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table text-center" id="dataTable" style="width:100%">
+            <thead>
+              <tr>
+                <th></th>
+                <th>項目名稱</th>
+                <th>e-mail</th>
+                <th>Line</th>
+                <th>Live Chat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td>
+                  項目1
+                </td>
+                <td>
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                </td>
+                <td>
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                </td>
+                <td>
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                </td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td>
+                  項目2
+                </td>
+                <td>
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                </td>
+                <td>
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                </td>
+                <td>
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                </td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td>
+                  項目3
+                </td>
+                <td>
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                </td>
+                <td>
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                </td>
+                <td>
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row justify-content-end">
+          <button type="button" class="btn btn-secondary mx-2">取消</button>
+          <button type="button" class="btn btn-info mx-2">儲存</button>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<?php include(__DIR__ . '/../basic/footer.html'); ?>
+
+<script>
+
+  var setting = {
+    "lengthChange": true,
+    "destroy": true,
+    "info": true,
+    "searching": false,
+    "order": [],
+    "language": {
+      "processing": "處理中...",
+      "loadingRecords": "載入中...",
+      "lengthMenu": "顯示 _MENU_ 項結果",
+      "zeroRecords": "沒有符合的結果",
+      "info": "顯示第 _START_ 至 _END_ 項結果，共 _TOTAL_ 項",
+      "infoEmpty": "顯示第 0 至 0 項結果，共 0 項",
+      "infoFiltered": "(從 _MAX_ 項結果中過濾)",
+      "infoPostFix": "",
+      "search": "搜尋:",
+      "paginate": {
+        "first": "第一頁",
+        "previous": "上一頁",
+        "next": "下一頁",
+        "last": "最後一頁"
+      },
+      "aria": {
+        "sortAscending": ": 升冪排列",
+        "sortDescending": ": 降冪排列"
+      }
+    }
+  }
+  // $(function(){
+  //   $('#dataTable').DataTable(JSON.parse(JSON.stringify(setting)));
+  //   getTokens();
+  //   getModules();
+  // })
+  // function getTokens(){
+  //   $('#dataTable').DataTable(JSON.parse(JSON.stringify(setting))).destroy();
+  //   let setting_business = JSON.parse(JSON.stringify(setting));
+  //   setting_business['ajax'] = {
+  //     url: `/notify/tokens`,
+  //     type: 'get',
+  //     "data": function ( d ) {
+  //         // d.id=$('#input_order_id').val()
+  //     }
+  //   };
+  //   setting_business['processing'] = true;
+  //   setting_business['serverSide'] = true;
+  //   setting_business['columns'] = [
+  //     { "data": null,
+  //       render: function(data, type, row, meta) {
+  //         return `<input type="checkbox" name="access_token" value="${data.access_token}" class="form-control" />`;
+  //       }
+  //     },
+  //     { "data": "name" },
+  //     { "data": "update_time" }
+  //   ];
+  //   $('#dataTable').DataTable(setting_business);
+  // }
+  // function getModules(){
+  //   $.ajax({
+  //     url:`/notify/modules`,
+  //     type:'get',
+  //     success:function(response){
+  //       $(response).each(function(){
+  //         $('#divModule').append(`
+  //           <button type="button" class="btn btn-link" name="buttonModule" module_id = ${this.id}>${this.name}</button>
+  //         `);
+  //       })
+  //     }
+  //   })
+  // }
+  // $(document).on('click','[name=buttonModule]',function(){
+  //   let element = this;
+  //   let module_id = $(this).attr('module_id');
+  //   $.ajax({
+  //     url:`/notify/state`,
+  //     type:'post',
+  //     data:{
+  //       module_id: module_id
+  //     },
+  //     success:function(response){
+  //       window.open(response.url, '_blank').focus();
+  //     }
+  //   });
+  // })
+</script>
